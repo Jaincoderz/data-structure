@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<!-- saved from url=(0128)file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#notes -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data Structures — C Programs</title>
+<style>
+:root{--bg:#191817;--panel:#242220;--text:#f3eee8;--muted:#bdb4aa;--accent:#f2a15e;--line:#403a34;--code:#111}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 Arial,Helvetica,sans-serif}
+header{background:#211f1d;border-bottom:1px solid var(--line)}
+.nav{max-width:1100px;margin:auto;padding:13px 18px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:bold}.brand span{color:var(--accent)}.nav a{color:var(--muted);text-decoration:none;margin-left:14px}
+.wrap{max-width:1100px;margin:auto;padding:22px 18px}.hero{padding:12px 0 18px}
+.eyebrow,.unit{color:var(--accent);font-weight:bold;font-size:.78rem;letter-spacing:1px}
+.hero h1{font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:8px 0}.hero h1 span{color:var(--accent)}.hero p{color:var(--muted);max-width:700px}
+.tools{display:flex;gap:10px;margin:18px 0;flex-wrap:wrap}.tools input,.tools select{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:5px;padding:10px;font:inherit}.tools input{flex:1;min-width:220px}
+.grid{display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:start}
+.side{position:sticky;top:12px;background:var(--panel);border:1px solid var(--line);padding:12px;border-radius:6px}.side strong{display:block;color:var(--muted);font-size:.75rem;margin:4px 7px 8px}.side a{display:block;color:var(--text);text-decoration:none;padding:7px;border-radius:4px;font-size:.9rem}.side a:hover{background:#37312b;color:var(--accent)}
+.topic{margin-bottom:25px;scroll-margin-top:15px}.topichead{border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px}.topichead h2{font-size:1.35rem;margin:3px 0}.topichead p{color:var(--muted);margin:3px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;margin:10px 0;overflow:hidden}.card h3{font-size:.98rem;font-weight:bold;margin:0;padding:11px 13px;border-bottom:1px solid var(--line);color:var(--accent)}
+.desc{color:var(--muted);padding:9px 13px 0;margin:0}.codewrap{position:relative;padding:12px}.codewrap pre{white-space:pre;overflow:auto;margin:0;background:var(--code);border:1px solid #39332e;border-radius:4px;padding:13px;color:#f3eee8;font:12.5px/1.5 Consolas,Monaco,monospace}
+.copy{position:absolute;right:19px;top:18px;background:#39332e;border:1px solid #5a4a3b;color:var(--text);padding:5px 8px;border-radius:4px;cursor:pointer}.copy:hover{background:var(--accent);color:#191817}
+.output{margin:0 12px 12px;background:#30271f;border-left:3px solid var(--accent);padding:8px 10px;color:#f3dfcb;font-size:.88rem}.empty{display:none;color:var(--muted);padding:15px}.footer{color:var(--muted);border-top:1px solid var(--line);margin-top:30px;padding:18px 0;font-size:.88rem}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.side{position:static}.nav a{display:none}.wrap{padding:16px 12px}}
+</style></head><body>
+<header><div class="nav"><div class="brand">DS <span>LAB</span> / C PROGRAMS</div><nav><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#all">All programs</a><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#notes">Study notes</a></nav></div></header>
+<div class="wrap"><section class="hero"><div class="eyebrow">BCA · Data Structure · Practical preparation</div><h1>Learn the logic.<br><span>Write the C program.</span></h1><p>C programs arranged in your syllabus order: Unit I, Unit II, Unit III, then Unit IV. Each example includes a complete program and expected output. Search by topic and copy code to practise.</p></section>
+<div class="tools"><input id="search" placeholder="Search programs (e.g. linked list, BFS, binary search)" aria-label="Search programs"><select id="unitFilter"><option value="all">All units</option><option>UNIT I</option><option>UNIT II</option><option>UNIT III</option><option>UNIT IV</option></select></div>
+<div class="grid"><aside class="side"><strong>SYLLABUS TOPICS</strong><div id="sideLinks"><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#topic-0">Basic Concepts &amp; Complexity</a><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#topic-1">Arrays</a><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#topic-2">Stacks</a><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#topic-3">Singly Linked List</a><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#topic-4">Doubly Linked List</a><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#topic-5">Header Linked List</a><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#topic-6">Circular Linked List</a><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#topic-7">Queues</a><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#topic-8">Trees / Binary Search Tree</a><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#topic-9">Graphs</a><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#topic-10">Searching</a><a href="file:///D:/New%20folder/mom%20phone%20data%20transfer/Desktop/website%20web/New%20folder/data_structure_website/index.html#topic-11">Sorting</a></div></aside><main id="all"><div id="programs"><section class="topic" id="topic-0"><div class="topichead"><div class="unit">UNIT I</div><h2>Basic Concepts &amp; Complexity</h2><p>Data structures, common operations and Big-O complexity.</p></div><article class="card"><h3>Example 1 — Traverse an array (O(n))</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int a[] = {10, 20, 30, 40};
+    int n = sizeof(a) / sizeof(a[0]);
+    for (int i = 0; i &lt; n; i++) printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}</code></pre></div><div class="output">Output: 10 20 30 40</div></article><article class="card"><h3>Example 2 — Direct array access (O(1))</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int a[] = {5, 10, 15, 20};
+    printf("%d\n", a[2]);
+    return 0;
+}</code></pre></div><div class="output">Output: 15</div></article><article class="card"><h3>Example 3 — Nested loops (O(n²))</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int a[] = {1, 2, 3}, n = 3;
+    for (int i = 0; i &lt; n; i++)
+        for (int j = 0; j &lt; n; j++) printf("(%d,%d) ", a[i], a[j]);
+    printf("\n");
+    return 0;
+}</code></pre></div><div class="output">Output: all 9 ordered pairs</div></article></section><section class="topic" id="topic-1"><div class="topichead"><div class="unit">UNIT I</div><h2>Arrays</h2><p>Traversal, insertion and deletion. Array positions in these examples are 0-based.</p></div><article class="card"><h3>Example 1 — Traverse an array</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int a[] = {10, 20, 30, 40, 50};
+    int n = sizeof(a) / sizeof(a[0]);
+    for (int i = 0; i &lt; n; i++) printf("%d ", a[i]);
+    printf("\\n");
+    return 0;
+}</code></pre></div><div class="output">Output: 10 20 30 40 50</div></article><article class="card"><h3>Example 2 — Insert at a position</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int a[10] = {10, 20, 40, 50};
+    int n = 4, pos = 2, value = 30;
+    if (pos &lt; 0 || pos &gt; n || n == 10) {
+        printf("Invalid position or array full\\n");
+        return 0;
+    }
+    for (int i = n; i &gt; pos; i--) a[i] = a[i - 1];
+    a[pos] = value;
+    n++;
+    for (int i = 0; i &lt; n; i++) printf("%d ", a[i]);
+    printf("\\n");
+    return 0;
+}</code></pre></div><div class="output">Output: 10 20 30 40 50</div></article><article class="card"><h3>Example 3 — Delete from a position</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int a[10] = {10, 20, 30, 40, 50};
+    int n = 5, pos = 2;
+    if (pos &lt; 0 || pos &gt;= n) {
+        printf("Invalid position\\n");
+        return 0;
+    }
+    for (int i = pos; i &lt; n - 1; i++) a[i] = a[i + 1];
+    n--;
+    for (int i = 0; i &lt; n; i++) printf("%d ", a[i]);
+    printf("\\n");
+    return 0;
+}</code></pre></div><div class="output">Output: 10 20 40 50</div></article></section><section class="topic" id="topic-2"><div class="topichead"><div class="unit">UNIT I</div><h2>Stacks</h2><p>A stack follows LIFO: Last In, First Out.</p></div><article class="card"><h3>Example 1 — Push and display</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#define MAX 5
+int main(void) {
+    int stack[MAX], top = -1;
+    int values[] = {10, 20, 30};
+    for (int i = 0; i &lt; 3; i++) {
+        if (top == MAX - 1) printf("Overflow\\n");
+        else stack[++top] = values[i];
+    }
+    for (int i = top; i &gt;= 0; i--) printf("%d ", stack[i]);
+    printf("\\n");
+    return 0;
+}</code></pre></div><div class="output">Output: 30 20 10</div></article><article class="card"><h3>Example 2 — Pop from a stack</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#define MAX 5
+int main(void) {
+    int stack[MAX] = {10, 20, 30};
+    int top = 2;
+    if (top == -1) printf("Underflow\\n");
+    else printf("Popped: %d\\n", stack[top--]);
+    printf("New top: %d\\n", stack[top]);
+    return 0;
+}</code></pre></div><div class="output">Output: Popped: 30; New top: 20</div></article><article class="card"><h3>Example 3 — Factorial using recursion</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+long long factorial(int n) {
+    if (n &lt;= 1) return 1;
+    return n * factorial(n - 1);
+}
+int main(void) {
+    int n = 5;
+    printf("Factorial = %lld\\n", factorial(n));
+    return 0;
+}</code></pre></div><div class="output">Output: Factorial = 120</div></article></section><section class="topic" id="topic-3"><div class="topichead"><div class="unit">UNIT II</div><h2>Singly Linked List</h2><p>Three full programs: insertion at beginning, at end, and in the middle (after a target value).</p></div><article class="card"><h3>Example 1 — Insert at beginning</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *next; };
+void insertBeginning(struct Node **head, int value) {
+    struct Node *n = malloc(sizeof *n);
+    if (!n) { printf("Memory error\\n"); exit(1); }
+    n-&gt;data = value; n-&gt;next = *head; *head = n;
+}
+void display(struct Node *p) {
+    while (p) { printf("%d -&gt; ", p-&gt;data); p = p-&gt;next; }
+    printf("NULL\\n");
+}
+void freeList(struct Node *p) {
+    while (p) { struct Node *tmp = p; p = p-&gt;next; free(tmp); }
+}
+int main(void) {
+    struct Node *head = NULL;
+    insertBeginning(&amp;head, 30);
+    insertBeginning(&amp;head, 20);
+    insertBeginning(&amp;head, 10);
+    display(head);
+    freeList(head);
+    return 0;
+}</code></pre></div><div class="output">Output: 10 -&gt; 20 -&gt; 30 -&gt; NULL</div></article><article class="card"><h3>Example 2 — Insert at end</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *next; };
+void insertEnd(struct Node **head, int value) {
+    struct Node *n = malloc(sizeof *n);
+    if (!n) { printf("Memory error\\n"); exit(1); }
+    n-&gt;data = value; n-&gt;next = NULL;
+    if (*head == NULL) { *head = n; return; }
+    struct Node *p = *head;
+    while (p-&gt;next) p = p-&gt;next;
+    p-&gt;next = n;
+}
+void display(struct Node *p) {
+    while (p) { printf("%d -&gt; ", p-&gt;data); p = p-&gt;next; }
+    printf("NULL\\n");
+}
+void freeList(struct Node *p) {
+    while (p) { struct Node *tmp = p; p = p-&gt;next; free(tmp); }
+}
+int main(void) {
+    struct Node *head = NULL;
+    insertEnd(&amp;head, 10);
+    insertEnd(&amp;head, 20);
+    insertEnd(&amp;head, 30);
+    display(head);
+    freeList(head);
+    return 0;
+}</code></pre></div><div class="output">Output: 10 -&gt; 20 -&gt; 30 -&gt; NULL</div></article><article class="card"><h3>Example 3 — Insert in middle after a value</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *next; };
+void insertEnd(struct Node **head, int value) {
+    struct Node *n = malloc(sizeof *n);
+    if (!n) { printf("Memory error\\n"); exit(1); }
+    n-&gt;data = value; n-&gt;next = NULL;
+    if (!*head) { *head = n; return; }
+    struct Node *p = *head;
+    while (p-&gt;next) p = p-&gt;next;
+    p-&gt;next = n;
+}
+int insertAfter(struct Node *head, int target, int value) {
+    while (head &amp;&amp; head-&gt;data != target) head = head-&gt;next;
+    if (!head) return 0;
+    struct Node *n = malloc(sizeof *n);
+    if (!n) { printf("Memory error\\n"); exit(1); }
+    n-&gt;data = value; n-&gt;next = head-&gt;next; head-&gt;next = n;
+    return 1;
+}
+void display(struct Node *p) {
+    while (p) { printf("%d -&gt; ", p-&gt;data); p = p-&gt;next; }
+    printf("NULL\\n");
+}
+void freeList(struct Node *p) {
+    while (p) { struct Node *tmp = p; p = p-&gt;next; free(tmp); }
+}
+int main(void) {
+    struct Node *head = NULL;
+    insertEnd(&amp;head, 10); insertEnd(&amp;head, 20); insertEnd(&amp;head, 40);
+    if (!insertAfter(head, 20, 30)) printf("Target not found\\n");
+    display(head);
+    freeList(head);
+    return 0;
+}</code></pre></div><div class="output">Output: 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL</div></article></section><section class="topic" id="topic-4"><div class="topichead"><div class="unit">UNIT II</div><h2>Doubly Linked List</h2><p>Each node has both prev and next pointers. Three complete programs: insert at beginning, insert at end, and traverse in both directions.</p></div><article class="card"><h3>Example 1 — Insert at beginning</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *prev, *next; };
+
+void insertBeginning(struct Node **head, int value) {
+    struct Node *n = malloc(sizeof *n);
+    if (!n) { printf("Memory error\\n"); exit(1); }
+    n-&gt;data = value; n-&gt;prev = NULL; n-&gt;next = *head;
+    if (*head) (*head)-&gt;prev = n;
+    *head = n;
+}
+void display(struct Node *p) {
+    while (p) { printf("%d &lt;-&gt; ", p-&gt;data); p = p-&gt;next; }
+    printf("NULL\\n");
+}
+void freeList(struct Node *p) {
+    while (p) { struct Node *tmp=p; p=p-&gt;next; free(tmp); }
+}
+int main(void) {
+    struct Node *head=NULL;
+    insertBeginning(&amp;head, 30);
+    insertBeginning(&amp;head, 20);
+    insertBeginning(&amp;head, 10);
+    display(head);
+    freeList(head);
+    return 0;
+}</code></pre></div><div class="output">Output: 10 &lt;-&gt; 20 &lt;-&gt; 30 &lt;-&gt; NULL</div></article><article class="card"><h3>Example 2 — Insert at end</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *prev, *next; };
+
+void insertEnd(struct Node **head, int value) {
+    struct Node *n=malloc(sizeof *n);
+    if (!n) { printf("Memory error\\n"); exit(1); }
+    n-&gt;data=value; n-&gt;next=NULL;
+    if (*head==NULL) { n-&gt;prev=NULL; *head=n; return; }
+    struct Node *p=*head;
+    while (p-&gt;next) p=p-&gt;next;
+    p-&gt;next=n; n-&gt;prev=p;
+}
+void display(struct Node *p) {
+    while (p) { printf("%d &lt;-&gt; ",p-&gt;data); p=p-&gt;next; }
+    printf("NULL\\n");
+}
+void freeList(struct Node *p) {
+    while (p) { struct Node *tmp=p; p=p-&gt;next; free(tmp); }
+}
+int main(void) {
+    struct Node *head=NULL;
+    insertEnd(&amp;head,10); insertEnd(&amp;head,20); insertEnd(&amp;head,30);
+    display(head); freeList(head); return 0;
+}</code></pre></div><div class="output">Output: 10 &lt;-&gt; 20 &lt;-&gt; 30 &lt;-&gt; NULL</div></article><article class="card"><h3>Example 3 — Traverse forward and backward</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *prev, *next; };
+int main(void) {
+    struct Node *a=malloc(sizeof *a), *b=malloc(sizeof *b), *c=malloc(sizeof *c);
+    if (!a || !b || !c) { printf("Memory error\\n"); return 1; }
+    a-&gt;data=10; a-&gt;prev=NULL; a-&gt;next=b;
+    b-&gt;data=20; b-&gt;prev=a; b-&gt;next=c;
+    c-&gt;data=30; c-&gt;prev=b; c-&gt;next=NULL;
+    printf("Forward: ");
+    for (struct Node *p=a; p; p=p-&gt;next) printf("%d ",p-&gt;data);
+    printf("\\nBackward: ");
+    for (struct Node *p=c; p; p=p-&gt;prev) printf("%d ",p-&gt;data);
+    printf("\\n");
+    free(a); free(b); free(c); return 0;
+}</code></pre></div><div class="output">Output: Forward: 10 20 30; Backward: 30 20 10</div></article></section><section class="topic" id="topic-5"><div class="topichead"><div class="unit">UNIT II</div><h2>Header Linked List</h2><p>A header node is a special first node; here it acts as a sentinel and stores no regular data.</p></div><article class="card"><h3>Example 1 — Create a header and append nodes</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *next; };
+int main(void) {
+    struct Node *header=malloc(sizeof *header);
+    if (!header) return 1;
+    header-&gt;next=NULL; /* sentinel header */
+    struct Node *tail=header;
+    for (int i=10;i&lt;=30;i+=10) {
+        struct Node *n=malloc(sizeof *n);
+        if (!n) return 1;
+        n-&gt;data=i; n-&gt;next=NULL; tail-&gt;next=n; tail=n;
+    }
+    for (struct Node *p=header-&gt;next;p;p=p-&gt;next) printf("%d ",p-&gt;data);
+    printf("\\n");
+    struct Node *p=header;
+    while (p) { struct Node *tmp=p; p=p-&gt;next; free(tmp); }
+    return 0;
+}</code></pre></div><div class="output">Output: 10 20 30</div></article><article class="card"><h3>Example 2 — Count nodes after header</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *next; };
+int main(void) {
+    struct Node header={0,NULL}; /* header node is on the stack */
+    struct Node a={10,NULL}, b={20,NULL}, c={30,NULL};
+    header.next=&amp;a; a.next=&amp;b; b.next=&amp;c;
+    int count=0;
+    for (struct Node *p=header.next;p;p=p-&gt;next) count++;
+    printf("Number of data nodes = %d\\n",count);
+    return 0;
+}</code></pre></div><div class="output">Output: Number of data nodes = 3</div></article><article class="card"><h3>Example 3 — Search in a header list</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+struct Node { int data; struct Node *next; };
+int main(void) {
+    struct Node c={30,NULL}, b={20,&amp;c}, a={10,&amp;b};
+    struct Node header={0,&amp;a};
+    int key=20, found=0, position=1;
+    for (struct Node *p=header.next;p;p=p-&gt;next,position++) {
+        if (p-&gt;data==key) { found=position; break; }
+    }
+    if (found) printf("Found at position %d\\n",found);
+    else printf("Not found\\n");
+    return 0;
+}</code></pre></div><div class="output">Output: Found at position 2</div></article></section><section class="topic" id="topic-6"><div class="topichead"><div class="unit">UNIT II</div><h2>Circular Linked List</h2><p>The last node points back to the first node. These programs use a circular singly linked list and stop traversal when the head is reached again.</p></div><article class="card"><h3>Example 1 — Create and display a circular list</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *next; };
+int main(void) {
+    struct Node *a=malloc(sizeof *a), *b=malloc(sizeof *b), *c=malloc(sizeof *c);
+    if (!a || !b || !c) { printf("Memory error\\n"); return 1; }
+    a-&gt;data=10; b-&gt;data=20; c-&gt;data=30;
+    a-&gt;next=b; b-&gt;next=c; c-&gt;next=a; /* circle back to head */
+    struct Node *p=a;
+    printf("Circular list: ");
+    do { printf("%d -&gt; ",p-&gt;data); p=p-&gt;next; } while (p!=a);
+    printf("(back to head)\\n");
+    free(a); free(b); free(c); return 0;
+}</code></pre></div><div class="output">Output: Circular list: 10 -&gt; 20 -&gt; 30 -&gt; (back to head)</div></article><article class="card"><h3>Example 2 — Insert at beginning</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *next; };
+void insertBeginning(struct Node **head, int value) {
+    struct Node *n=malloc(sizeof *n);
+    if (!n) { printf("Memory error\\n"); exit(1); }
+    n-&gt;data=value;
+    if (*head==NULL) { n-&gt;next=n; *head=n; return; }
+    struct Node *last=*head;
+    while (last-&gt;next!=*head) last=last-&gt;next;
+    n-&gt;next=*head; last-&gt;next=n; *head=n;
+}
+void display(struct Node *head) {
+    if (!head) { printf("Empty\\n"); return; }
+    struct Node *p=head;
+    do { printf("%d -&gt; ",p-&gt;data); p=p-&gt;next; } while (p!=head);
+    printf("(back to head)\\n");
+}
+void freeCircle(struct Node *head) {
+    if (!head) return;
+    struct Node *p=head-&gt;next;
+    while (p!=head) { struct Node *tmp=p; p=p-&gt;next; free(tmp); }
+    free(head);
+}
+int main(void) {
+    struct Node *head=NULL;
+    insertBeginning(&amp;head,20); insertBeginning(&amp;head,10);
+    insertBeginning(&amp;head,5); display(head); freeCircle(head); return 0;
+}</code></pre></div><div class="output">Output: 5 -&gt; 10 -&gt; 20 -&gt; (back to head)</div></article><article class="card"><h3>Example 3 — Insert at end</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *next; };
+void insertEnd(struct Node **head, int value) {
+    struct Node *n=malloc(sizeof *n);
+    if (!n) { printf("Memory error\\n"); exit(1); }
+    n-&gt;data=value;
+    if (*head==NULL) { n-&gt;next=n; *head=n; return; }
+    struct Node *last=*head;
+    while (last-&gt;next!=*head) last=last-&gt;next;
+    last-&gt;next=n; n-&gt;next=*head;
+}
+void display(struct Node *head) {
+    if (!head) { printf("Empty\\n"); return; }
+    struct Node *p=head;
+    do { printf("%d -&gt; ",p-&gt;data); p=p-&gt;next; } while (p!=head);
+    printf("(back to head)\\n");
+}
+void freeCircle(struct Node *head) {
+    if (!head) return;
+    struct Node *p=head-&gt;next;
+    while (p!=head) { struct Node *tmp=p; p=p-&gt;next; free(tmp); }
+    free(head);
+}
+int main(void) {
+    struct Node *head=NULL;
+    insertEnd(&amp;head,10); insertEnd(&amp;head,20); insertEnd(&amp;head,30);
+    display(head); freeCircle(head); return 0;
+}</code></pre></div><div class="output">Output: 10 -&gt; 20 -&gt; 30 -&gt; (back to head)</div></article></section><section class="topic" id="topic-7"><div class="topichead"><div class="unit">UNIT II</div><h2>Queues</h2><p>A queue follows FIFO: First In, First Out.</p></div><article class="card"><h3>Example 1 — Enqueue and dequeue</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#define MAX 5
+int main(void) {
+    int q[MAX], front = 0, rear = -1;
+    q[++rear] = 10; q[++rear] = 20; q[++rear] = 30;
+    if (front &lt;= rear) printf("Removed: %d\\n", q[front++]);
+    printf("Front item: %d\\n", q[front]);
+    return 0;
+}</code></pre></div><div class="output">Output: Removed: 10; Front item: 20</div></article><article class="card"><h3>Example 2 — Circular queue</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#define MAX 5
+int main(void) {
+    int q[MAX], front = 0, rear = 0, count = 0;
+    int values[] = {11, 22, 33};
+    for (int i = 0; i &lt; 3; i++) {
+        if (count == MAX) printf("Full\\n");
+        else { q[rear] = values[i]; rear = (rear + 1) % MAX; count++; }
+    }
+    if (count &gt; 0) {
+        printf("Removed: %d\\n", q[front]);
+        front = (front + 1) % MAX; count--;
+    }
+    printf("Next item: %d\\n", q[front]);
+    return 0;
+}</code></pre></div><div class="output">Output: Removed: 11; Next item: 22</div></article><article class="card"><h3>Example 3 — Print queue contents</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int q[] = {5, 10, 15, 20};
+    int front = 0, rear = 3;
+    printf("Queue: ");
+    for (int i = front; i &lt;= rear; i++) printf("%d ", q[i]);
+    printf("\\n");
+    return 0;
+}</code></pre></div><div class="output">Output: Queue: 5 10 15 20</div></article></section><section class="topic" id="topic-8"><div class="topichead"><div class="unit">UNIT III</div><h2>Trees / Binary Search Tree</h2><p>Tree traversal and Binary Search Tree (BST) insertion/search.</p></div><article class="card"><h3>Example 1 — Inorder, preorder and postorder</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *left, *right; };
+struct Node *node(int x) {
+    struct Node *n = malloc(sizeof *n);
+    if (!n) exit(1);
+    n-&gt;data=x; n-&gt;left=n-&gt;right=NULL; return n;
+}
+void inorder(struct Node *r) {
+    if (!r) return; inorder(r-&gt;left); printf("%d ",r-&gt;data); inorder(r-&gt;right);
+}
+void preorder(struct Node *r) {
+    if (!r) return; printf("%d ",r-&gt;data); preorder(r-&gt;left); preorder(r-&gt;right);
+}
+void postorder(struct Node *r) {
+    if (!r) return; postorder(r-&gt;left); postorder(r-&gt;right); printf("%d ",r-&gt;data);
+}
+void freeTree(struct Node *r) {
+    if (!r) return; freeTree(r-&gt;left); freeTree(r-&gt;right); free(r);
+}
+int main(void) {
+    struct Node *r=node(2); r-&gt;left=node(1); r-&gt;right=node(3);
+    printf("Inorder: "); inorder(r);
+    printf("\\nPreorder: "); preorder(r);
+    printf("\\nPostorder: "); postorder(r); printf("\\n");
+    freeTree(r); return 0;
+}</code></pre></div><div class="output">Output: Inorder 1 2 3; Preorder 2 1 3; Postorder 1 3 2</div></article><article class="card"><h3>Example 2 — Insert into a BST</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *left, *right; };
+struct Node *insert(struct Node *r, int x) {
+    if (!r) {
+        r = malloc(sizeof *r);
+        if (!r) exit(1);
+        r-&gt;data=x; r-&gt;left=r-&gt;right=NULL; return r;
+    }
+    if (x &lt; r-&gt;data) r-&gt;left=insert(r-&gt;left,x);
+    else if (x &gt; r-&gt;data) r-&gt;right=insert(r-&gt;right,x);
+    return r;
+}
+void inorder(struct Node *r) {
+    if (!r) return; inorder(r-&gt;left); printf("%d ",r-&gt;data); inorder(r-&gt;right);
+}
+void freeTree(struct Node *r) {
+    if (!r) return; freeTree(r-&gt;left); freeTree(r-&gt;right); free(r);
+}
+int main(void) {
+    int a[]={40,20,60,10,30}, n=5;
+    struct Node *root=NULL;
+    for (int i=0;i&lt;n;i++) root=insert(root,a[i]);
+    inorder(root); printf("\\n"); freeTree(root); return 0;
+}</code></pre></div><div class="output">Output: 10 20 30 40 60</div></article><article class="card"><h3>Example 3 — Search in a BST</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Node { int data; struct Node *left, *right; };
+struct Node *insert(struct Node *r, int x) {
+    if (!r) { r=malloc(sizeof *r); if(!r) exit(1); r-&gt;data=x; r-&gt;left=r-&gt;right=NULL; return r; }
+    if(x&lt;r-&gt;data) r-&gt;left=insert(r-&gt;left,x); else if(x&gt;r-&gt;data) r-&gt;right=insert(r-&gt;right,x);
+    return r;
+}
+int search(struct Node *r, int key) {
+    if (!r) return 0;
+    if (r-&gt;data==key) return 1;
+    return key&lt;r-&gt;data ? search(r-&gt;left,key) : search(r-&gt;right,key);
+}
+void freeTree(struct Node *r) { if(!r)return; freeTree(r-&gt;left); freeTree(r-&gt;right); free(r); }
+int main(void) {
+    struct Node *r=NULL; int a[]={15,8,22,5,12};
+    for(int i=0;i&lt;5;i++) r=insert(r,a[i]);
+    printf("%s\\n", search(r,12) ? "Found" : "Not found");
+    freeTree(r); return 0;
+}</code></pre></div><div class="output">Output: Found</div></article></section><section class="topic" id="topic-9"><div class="topichead"><div class="unit">UNIT III</div><h2>Graphs</h2><p>Graph representation, Depth First Search (DFS), and Breadth First Search (BFS).</p></div><article class="card"><h3>Example 1 — Adjacency matrix</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int g[4][4] = {
+        {0,1,1,0},
+        {1,0,0,1},
+        {1,0,0,1},
+        {0,1,1,0}
+    };
+    for (int i=0;i&lt;4;i++) {
+        for (int j=0;j&lt;4;j++) printf("%d ",g[i][j]);
+        printf("\\n");
+    }
+    return 0;
+}</code></pre></div><div class="output">Output: prints the 4 × 4 adjacency matrix</div></article><article class="card"><h3>Example 2 — DFS traversal</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int g[5][5] = {
+    {0,1,1,0,0}, {1,0,0,1,0}, {1,0,0,1,1},
+    {0,1,1,0,1}, {0,0,1,1,0}
+};
+int visited[5];
+void dfs(int v) {
+    visited[v]=1; printf("%d ",v);
+    for(int i=0;i&lt;5;i++) if(g[v][i] &amp;&amp; !visited[i]) dfs(i);
+}
+int main(void) { dfs(0); printf("\\n"); return 0; }</code></pre></div><div class="output">Output: one valid DFS order: 0 1 3 2 4</div></article><article class="card"><h3>Example 3 — BFS traversal</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int g[5][5] = {
+        {0,1,1,0,0}, {1,0,0,1,0}, {1,0,0,1,1},
+        {0,1,1,0,1}, {0,0,1,1,0}
+    };
+    int q[5], front=0, rear=0, seen[5]={0};
+    q[rear++]=0; seen[0]=1;
+    while(front&lt;rear) {
+        int v=q[front++]; printf("%d ",v);
+        for(int i=0;i&lt;5;i++)
+            if(g[v][i] &amp;&amp; !seen[i]) { seen[i]=1; q[rear++]=i; }
+    }
+    printf("\\n"); return 0;
+}</code></pre></div><div class="output">Output: one valid BFS order: 0 1 2 3 4</div></article></section><section class="topic" id="topic-10"><div class="topichead"><div class="unit">UNIT IV</div><h2>Searching</h2><p>Linear search works on unsorted data; binary search requires sorted data.</p></div><article class="card"><h3>Example 1 — Linear search</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int a[]={7,2,9,4,5}, n=5, key=9, pos=-1;
+    for(int i=0;i&lt;n;i++) if(a[i]==key) { pos=i; break; }
+    if(pos==-1) printf("Not found\\n");
+    else printf("Found at index %d\\n",pos);
+    return 0;
+}</code></pre></div><div class="output">Output: Found at index 2</div></article><article class="card"><h3>Example 2 — Binary search</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int a[]={3,8,12,19,25,31}, n=6, key=19;
+    int low=0, high=n-1, pos=-1;
+    while(low&lt;=high) {
+        int mid=low+(high-low)/2;
+        if(a[mid]==key) { pos=mid; break; }
+        if(a[mid]&lt;key) low=mid+1; else high=mid-1;
+    }
+    printf(pos==-1 ? "Not found\\n" : "Found at index %d\\n",pos);
+    return 0;
+}</code></pre></div><div class="output">Output: Found at index 3</div></article><article class="card"><h3>Example 3 — Count occurrences</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int a[]={2,4,2,7,2,9}, n=6, key=2, count=0;
+    for(int i=0;i&lt;n;i++) if(a[i]==key) count++;
+    printf("Occurrences = %d\\n",count);
+    return 0;
+}</code></pre></div><div class="output">Output: Occurrences = 3</div></article></section><section class="topic" id="topic-11"><div class="topichead"><div class="unit">UNIT IV</div><h2>Sorting</h2><p>Bubble sort, insertion sort and selection sort.</p></div><article class="card"><h3>Example 1 — Bubble sort</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int a[]={5,1,4,2,8}, n=5;
+    for(int i=0;i&lt;n-1;i++)
+        for(int j=0;j&lt;n-i-1;j++)
+            if(a[j]&gt;a[j+1]) { int t=a[j]; a[j]=a[j+1]; a[j+1]=t; }
+    for(int i=0;i&lt;n;i++) printf("%d ",a[i]);
+    printf("\\n"); return 0;
+}</code></pre></div><div class="output">Output: 1 2 4 5 8</div></article><article class="card"><h3>Example 2 — Insertion sort</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int a[]={9,5,1,4,3}, n=5;
+    for(int i=1;i&lt;n;i++) {
+        int key=a[i], j=i-1;
+        while(j&gt;=0 &amp;&amp; a[j]&gt;key) { a[j+1]=a[j]; j--; }
+        a[j+1]=key;
+    }
+    for(int i=0;i&lt;n;i++) printf("%d ",a[i]);
+    printf("\\n"); return 0;
+}</code></pre></div><div class="output">Output: 1 3 4 5 9</div></article><article class="card"><h3>Example 3 — Selection sort</h3><p class="desc">Complete C program — copy, compile and run.</p><div class="codewrap"><button class="copy">Copy code</button><pre><code>#include &lt;stdio.h&gt;
+int main(void) {
+    int a[]={64,25,12,22,11}, n=5;
+    for(int i=0;i&lt;n-1;i++) {
+        int min=i;
+        for(int j=i+1;j&lt;n;j++) if(a[j]&lt;a[min]) min=j;
+        int t=a[i]; a[i]=a[min]; a[min]=t;
+    }
+    for(int i=0;i&lt;n;i++) printf("%d ",a[i]);
+    printf("\\n"); return 0;
+}</code></pre></div><div class="output">Output: 11 12 22 25 64</div></article></section></div></main></div>
+<footer>Project made by MOKSH JAIN</footer>
+<footer>BCA 2ND YR</footer>
+<footer>4286/25</footer></div>
+<script>
+const topics = [{"title": "Basic Concepts & Complexity", "unit": "UNIT I", "summary": "Data structures, common operations and Big-O complexity.", "programs": [["Example 1 — Traverse an array (O(n))", "#include <stdio.h>\nint main(void) {\n    int a[] = {10, 20, 30, 40};\n    int n = sizeof(a) / sizeof(a[0]);\n    for (int i = 0; i < n; i++) printf(\"%d \", a[i]);\n    printf(\"\\n\");\n    return 0;\n}", "Output: 10 20 30 40"], ["Example 2 — Direct array access (O(1))", "#include <stdio.h>\nint main(void) {\n    int a[] = {5, 10, 15, 20};\n    printf(\"%d\\n\", a[2]);\n    return 0;\n}", "Output: 15"], ["Example 3 — Nested loops (O(n²))", "#include <stdio.h>\nint main(void) {\n    int a[] = {1, 2, 3}, n = 3;\n    for (int i = 0; i < n; i++)\n        for (int j = 0; j < n; j++) printf(\"(%d,%d) \", a[i], a[j]);\n    printf(\"\\n\");\n    return 0;\n}", "Output: all 9 ordered pairs"]]}, {"title": "Arrays", "unit": "UNIT I", "summary": "Traversal, insertion and deletion. Array positions in these examples are 0-based.", "programs": [["Example 1 — Traverse an array", "#include <stdio.h>\nint main(void) {\n    int a[] = {10, 20, 30, 40, 50};\n    int n = sizeof(a) / sizeof(a[0]);\n    for (int i = 0; i < n; i++) printf(\"%d \", a[i]);\n    printf(\"\\\\n\");\n    return 0;\n}", "Output: 10 20 30 40 50"], ["Example 2 — Insert at a position", "#include <stdio.h>\nint main(void) {\n    int a[10] = {10, 20, 40, 50};\n    int n = 4, pos = 2, value = 30;\n    if (pos < 0 || pos > n || n == 10) {\n        printf(\"Invalid position or array full\\\\n\");\n        return 0;\n    }\n    for (int i = n; i > pos; i--) a[i] = a[i - 1];\n    a[pos] = value;\n    n++;\n    for (int i = 0; i < n; i++) printf(\"%d \", a[i]);\n    printf(\"\\\\n\");\n    return 0;\n}", "Output: 10 20 30 40 50"], ["Example 3 — Delete from a position", "#include <stdio.h>\nint main(void) {\n    int a[10] = {10, 20, 30, 40, 50};\n    int n = 5, pos = 2;\n    if (pos < 0 || pos >= n) {\n        printf(\"Invalid position\\\\n\");\n        return 0;\n    }\n    for (int i = pos; i < n - 1; i++) a[i] = a[i + 1];\n    n--;\n    for (int i = 0; i < n; i++) printf(\"%d \", a[i]);\n    printf(\"\\\\n\");\n    return 0;\n}", "Output: 10 20 40 50"]]}, {"title": "Stacks", "unit": "UNIT I", "summary": "A stack follows LIFO: Last In, First Out.", "programs": [["Example 1 — Push and display", "#include <stdio.h>\n#define MAX 5\nint main(void) {\n    int stack[MAX], top = -1;\n    int values[] = {10, 20, 30};\n    for (int i = 0; i < 3; i++) {\n        if (top == MAX - 1) printf(\"Overflow\\\\n\");\n        else stack[++top] = values[i];\n    }\n    for (int i = top; i >= 0; i--) printf(\"%d \", stack[i]);\n    printf(\"\\\\n\");\n    return 0;\n}", "Output: 30 20 10"], ["Example 2 — Pop from a stack", "#include <stdio.h>\n#define MAX 5\nint main(void) {\n    int stack[MAX] = {10, 20, 30};\n    int top = 2;\n    if (top == -1) printf(\"Underflow\\\\n\");\n    else printf(\"Popped: %d\\\\n\", stack[top--]);\n    printf(\"New top: %d\\\\n\", stack[top]);\n    return 0;\n}", "Output: Popped: 30; New top: 20"], ["Example 3 — Factorial using recursion", "#include <stdio.h>\nlong long factorial(int n) {\n    if (n <= 1) return 1;\n    return n * factorial(n - 1);\n}\nint main(void) {\n    int n = 5;\n    printf(\"Factorial = %lld\\\\n\", factorial(n));\n    return 0;\n}", "Output: Factorial = 120"]]}, {"title": "Singly Linked List", "unit": "UNIT II", "summary": "Three full programs: insertion at beginning, at end, and in the middle (after a target value).", "programs": [["Example 1 — Insert at beginning", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *next; };\nvoid insertBeginning(struct Node **head, int value) {\n    struct Node *n = malloc(sizeof *n);\n    if (!n) { printf(\"Memory error\\\\n\"); exit(1); }\n    n->data = value; n->next = *head; *head = n;\n}\nvoid display(struct Node *p) {\n    while (p) { printf(\"%d -> \", p->data); p = p->next; }\n    printf(\"NULL\\\\n\");\n}\nvoid freeList(struct Node *p) {\n    while (p) { struct Node *tmp = p; p = p->next; free(tmp); }\n}\nint main(void) {\n    struct Node *head = NULL;\n    insertBeginning(&head, 30);\n    insertBeginning(&head, 20);\n    insertBeginning(&head, 10);\n    display(head);\n    freeList(head);\n    return 0;\n}", "Output: 10 -> 20 -> 30 -> NULL"], ["Example 2 — Insert at end", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *next; };\nvoid insertEnd(struct Node **head, int value) {\n    struct Node *n = malloc(sizeof *n);\n    if (!n) { printf(\"Memory error\\\\n\"); exit(1); }\n    n->data = value; n->next = NULL;\n    if (*head == NULL) { *head = n; return; }\n    struct Node *p = *head;\n    while (p->next) p = p->next;\n    p->next = n;\n}\nvoid display(struct Node *p) {\n    while (p) { printf(\"%d -> \", p->data); p = p->next; }\n    printf(\"NULL\\\\n\");\n}\nvoid freeList(struct Node *p) {\n    while (p) { struct Node *tmp = p; p = p->next; free(tmp); }\n}\nint main(void) {\n    struct Node *head = NULL;\n    insertEnd(&head, 10);\n    insertEnd(&head, 20);\n    insertEnd(&head, 30);\n    display(head);\n    freeList(head);\n    return 0;\n}", "Output: 10 -> 20 -> 30 -> NULL"], ["Example 3 — Insert in middle after a value", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *next; };\nvoid insertEnd(struct Node **head, int value) {\n    struct Node *n = malloc(sizeof *n);\n    if (!n) { printf(\"Memory error\\\\n\"); exit(1); }\n    n->data = value; n->next = NULL;\n    if (!*head) { *head = n; return; }\n    struct Node *p = *head;\n    while (p->next) p = p->next;\n    p->next = n;\n}\nint insertAfter(struct Node *head, int target, int value) {\n    while (head && head->data != target) head = head->next;\n    if (!head) return 0;\n    struct Node *n = malloc(sizeof *n);\n    if (!n) { printf(\"Memory error\\\\n\"); exit(1); }\n    n->data = value; n->next = head->next; head->next = n;\n    return 1;\n}\nvoid display(struct Node *p) {\n    while (p) { printf(\"%d -> \", p->data); p = p->next; }\n    printf(\"NULL\\\\n\");\n}\nvoid freeList(struct Node *p) {\n    while (p) { struct Node *tmp = p; p = p->next; free(tmp); }\n}\nint main(void) {\n    struct Node *head = NULL;\n    insertEnd(&head, 10); insertEnd(&head, 20); insertEnd(&head, 40);\n    if (!insertAfter(head, 20, 30)) printf(\"Target not found\\\\n\");\n    display(head);\n    freeList(head);\n    return 0;\n}", "Output: 10 -> 20 -> 30 -> 40 -> NULL"]]}, {"title": "Doubly Linked List", "unit": "UNIT II", "summary": "Each node has both prev and next pointers. Three complete programs: insert at beginning, insert at end, and traverse in both directions.", "programs": [["Example 1 — Insert at beginning", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *prev, *next; };\n\nvoid insertBeginning(struct Node **head, int value) {\n    struct Node *n = malloc(sizeof *n);\n    if (!n) { printf(\"Memory error\\\\n\"); exit(1); }\n    n->data = value; n->prev = NULL; n->next = *head;\n    if (*head) (*head)->prev = n;\n    *head = n;\n}\nvoid display(struct Node *p) {\n    while (p) { printf(\"%d <-> \", p->data); p = p->next; }\n    printf(\"NULL\\\\n\");\n}\nvoid freeList(struct Node *p) {\n    while (p) { struct Node *tmp=p; p=p->next; free(tmp); }\n}\nint main(void) {\n    struct Node *head=NULL;\n    insertBeginning(&head, 30);\n    insertBeginning(&head, 20);\n    insertBeginning(&head, 10);\n    display(head);\n    freeList(head);\n    return 0;\n}", "Output: 10 <-> 20 <-> 30 <-> NULL"], ["Example 2 — Insert at end", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *prev, *next; };\n\nvoid insertEnd(struct Node **head, int value) {\n    struct Node *n=malloc(sizeof *n);\n    if (!n) { printf(\"Memory error\\\\n\"); exit(1); }\n    n->data=value; n->next=NULL;\n    if (*head==NULL) { n->prev=NULL; *head=n; return; }\n    struct Node *p=*head;\n    while (p->next) p=p->next;\n    p->next=n; n->prev=p;\n}\nvoid display(struct Node *p) {\n    while (p) { printf(\"%d <-> \",p->data); p=p->next; }\n    printf(\"NULL\\\\n\");\n}\nvoid freeList(struct Node *p) {\n    while (p) { struct Node *tmp=p; p=p->next; free(tmp); }\n}\nint main(void) {\n    struct Node *head=NULL;\n    insertEnd(&head,10); insertEnd(&head,20); insertEnd(&head,30);\n    display(head); freeList(head); return 0;\n}", "Output: 10 <-> 20 <-> 30 <-> NULL"], ["Example 3 — Traverse forward and backward", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *prev, *next; };\nint main(void) {\n    struct Node *a=malloc(sizeof *a), *b=malloc(sizeof *b), *c=malloc(sizeof *c);\n    if (!a || !b || !c) { printf(\"Memory error\\\\n\"); return 1; }\n    a->data=10; a->prev=NULL; a->next=b;\n    b->data=20; b->prev=a; b->next=c;\n    c->data=30; c->prev=b; c->next=NULL;\n    printf(\"Forward: \");\n    for (struct Node *p=a; p; p=p->next) printf(\"%d \",p->data);\n    printf(\"\\\\nBackward: \");\n    for (struct Node *p=c; p; p=p->prev) printf(\"%d \",p->data);\n    printf(\"\\\\n\");\n    free(a); free(b); free(c); return 0;\n}", "Output: Forward: 10 20 30; Backward: 30 20 10"]]}, {"title": "Header Linked List", "unit": "UNIT II", "summary": "A header node is a special first node; here it acts as a sentinel and stores no regular data.", "programs": [["Example 1 — Create a header and append nodes", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *next; };\nint main(void) {\n    struct Node *header=malloc(sizeof *header);\n    if (!header) return 1;\n    header->next=NULL; /* sentinel header */\n    struct Node *tail=header;\n    for (int i=10;i<=30;i+=10) {\n        struct Node *n=malloc(sizeof *n);\n        if (!n) return 1;\n        n->data=i; n->next=NULL; tail->next=n; tail=n;\n    }\n    for (struct Node *p=header->next;p;p=p->next) printf(\"%d \",p->data);\n    printf(\"\\\\n\");\n    struct Node *p=header;\n    while (p) { struct Node *tmp=p; p=p->next; free(tmp); }\n    return 0;\n}", "Output: 10 20 30"], ["Example 2 — Count nodes after header", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *next; };\nint main(void) {\n    struct Node header={0,NULL}; /* header node is on the stack */\n    struct Node a={10,NULL}, b={20,NULL}, c={30,NULL};\n    header.next=&a; a.next=&b; b.next=&c;\n    int count=0;\n    for (struct Node *p=header.next;p;p=p->next) count++;\n    printf(\"Number of data nodes = %d\\\\n\",count);\n    return 0;\n}", "Output: Number of data nodes = 3"], ["Example 3 — Search in a header list", "#include <stdio.h>\nstruct Node { int data; struct Node *next; };\nint main(void) {\n    struct Node c={30,NULL}, b={20,&c}, a={10,&b};\n    struct Node header={0,&a};\n    int key=20, found=0, position=1;\n    for (struct Node *p=header.next;p;p=p->next,position++) {\n        if (p->data==key) { found=position; break; }\n    }\n    if (found) printf(\"Found at position %d\\\\n\",found);\n    else printf(\"Not found\\\\n\");\n    return 0;\n}", "Output: Found at position 2"]]}, {"title": "Circular Linked List", "unit": "UNIT II", "summary": "The last node points back to the first node. These programs use a circular singly linked list and stop traversal when the head is reached again.", "programs": [["Example 1 — Create and display a circular list", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *next; };\nint main(void) {\n    struct Node *a=malloc(sizeof *a), *b=malloc(sizeof *b), *c=malloc(sizeof *c);\n    if (!a || !b || !c) { printf(\"Memory error\\\\n\"); return 1; }\n    a->data=10; b->data=20; c->data=30;\n    a->next=b; b->next=c; c->next=a; /* circle back to head */\n    struct Node *p=a;\n    printf(\"Circular list: \");\n    do { printf(\"%d -> \",p->data); p=p->next; } while (p!=a);\n    printf(\"(back to head)\\\\n\");\n    free(a); free(b); free(c); return 0;\n}", "Output: Circular list: 10 -> 20 -> 30 -> (back to head)"], ["Example 2 — Insert at beginning", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *next; };\nvoid insertBeginning(struct Node **head, int value) {\n    struct Node *n=malloc(sizeof *n);\n    if (!n) { printf(\"Memory error\\\\n\"); exit(1); }\n    n->data=value;\n    if (*head==NULL) { n->next=n; *head=n; return; }\n    struct Node *last=*head;\n    while (last->next!=*head) last=last->next;\n    n->next=*head; last->next=n; *head=n;\n}\nvoid display(struct Node *head) {\n    if (!head) { printf(\"Empty\\\\n\"); return; }\n    struct Node *p=head;\n    do { printf(\"%d -> \",p->data); p=p->next; } while (p!=head);\n    printf(\"(back to head)\\\\n\");\n}\nvoid freeCircle(struct Node *head) {\n    if (!head) return;\n    struct Node *p=head->next;\n    while (p!=head) { struct Node *tmp=p; p=p->next; free(tmp); }\n    free(head);\n}\nint main(void) {\n    struct Node *head=NULL;\n    insertBeginning(&head,20); insertBeginning(&head,10);\n    insertBeginning(&head,5); display(head); freeCircle(head); return 0;\n}", "Output: 5 -> 10 -> 20 -> (back to head)"], ["Example 3 — Insert at end", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *next; };\nvoid insertEnd(struct Node **head, int value) {\n    struct Node *n=malloc(sizeof *n);\n    if (!n) { printf(\"Memory error\\\\n\"); exit(1); }\n    n->data=value;\n    if (*head==NULL) { n->next=n; *head=n; return; }\n    struct Node *last=*head;\n    while (last->next!=*head) last=last->next;\n    last->next=n; n->next=*head;\n}\nvoid display(struct Node *head) {\n    if (!head) { printf(\"Empty\\\\n\"); return; }\n    struct Node *p=head;\n    do { printf(\"%d -> \",p->data); p=p->next; } while (p!=head);\n    printf(\"(back to head)\\\\n\");\n}\nvoid freeCircle(struct Node *head) {\n    if (!head) return;\n    struct Node *p=head->next;\n    while (p!=head) { struct Node *tmp=p; p=p->next; free(tmp); }\n    free(head);\n}\nint main(void) {\n    struct Node *head=NULL;\n    insertEnd(&head,10); insertEnd(&head,20); insertEnd(&head,30);\n    display(head); freeCircle(head); return 0;\n}", "Output: 10 -> 20 -> 30 -> (back to head)"]]}, {"title": "Queues", "unit": "UNIT II", "summary": "A queue follows FIFO: First In, First Out.", "programs": [["Example 1 — Enqueue and dequeue", "#include <stdio.h>\n#define MAX 5\nint main(void) {\n    int q[MAX], front = 0, rear = -1;\n    q[++rear] = 10; q[++rear] = 20; q[++rear] = 30;\n    if (front <= rear) printf(\"Removed: %d\\\\n\", q[front++]);\n    printf(\"Front item: %d\\\\n\", q[front]);\n    return 0;\n}", "Output: Removed: 10; Front item: 20"], ["Example 2 — Circular queue", "#include <stdio.h>\n#define MAX 5\nint main(void) {\n    int q[MAX], front = 0, rear = 0, count = 0;\n    int values[] = {11, 22, 33};\n    for (int i = 0; i < 3; i++) {\n        if (count == MAX) printf(\"Full\\\\n\");\n        else { q[rear] = values[i]; rear = (rear + 1) % MAX; count++; }\n    }\n    if (count > 0) {\n        printf(\"Removed: %d\\\\n\", q[front]);\n        front = (front + 1) % MAX; count--;\n    }\n    printf(\"Next item: %d\\\\n\", q[front]);\n    return 0;\n}", "Output: Removed: 11; Next item: 22"], ["Example 3 — Print queue contents", "#include <stdio.h>\nint main(void) {\n    int q[] = {5, 10, 15, 20};\n    int front = 0, rear = 3;\n    printf(\"Queue: \");\n    for (int i = front; i <= rear; i++) printf(\"%d \", q[i]);\n    printf(\"\\\\n\");\n    return 0;\n}", "Output: Queue: 5 10 15 20"]]}, {"title": "Trees / Binary Search Tree", "unit": "UNIT III", "summary": "Tree traversal and Binary Search Tree (BST) insertion/search.", "programs": [["Example 1 — Inorder, preorder and postorder", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *left, *right; };\nstruct Node *node(int x) {\n    struct Node *n = malloc(sizeof *n);\n    if (!n) exit(1);\n    n->data=x; n->left=n->right=NULL; return n;\n}\nvoid inorder(struct Node *r) {\n    if (!r) return; inorder(r->left); printf(\"%d \",r->data); inorder(r->right);\n}\nvoid preorder(struct Node *r) {\n    if (!r) return; printf(\"%d \",r->data); preorder(r->left); preorder(r->right);\n}\nvoid postorder(struct Node *r) {\n    if (!r) return; postorder(r->left); postorder(r->right); printf(\"%d \",r->data);\n}\nvoid freeTree(struct Node *r) {\n    if (!r) return; freeTree(r->left); freeTree(r->right); free(r);\n}\nint main(void) {\n    struct Node *r=node(2); r->left=node(1); r->right=node(3);\n    printf(\"Inorder: \"); inorder(r);\n    printf(\"\\\\nPreorder: \"); preorder(r);\n    printf(\"\\\\nPostorder: \"); postorder(r); printf(\"\\\\n\");\n    freeTree(r); return 0;\n}", "Output: Inorder 1 2 3; Preorder 2 1 3; Postorder 1 3 2"], ["Example 2 — Insert into a BST", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *left, *right; };\nstruct Node *insert(struct Node *r, int x) {\n    if (!r) {\n        r = malloc(sizeof *r);\n        if (!r) exit(1);\n        r->data=x; r->left=r->right=NULL; return r;\n    }\n    if (x < r->data) r->left=insert(r->left,x);\n    else if (x > r->data) r->right=insert(r->right,x);\n    return r;\n}\nvoid inorder(struct Node *r) {\n    if (!r) return; inorder(r->left); printf(\"%d \",r->data); inorder(r->right);\n}\nvoid freeTree(struct Node *r) {\n    if (!r) return; freeTree(r->left); freeTree(r->right); free(r);\n}\nint main(void) {\n    int a[]={40,20,60,10,30}, n=5;\n    struct Node *root=NULL;\n    for (int i=0;i<n;i++) root=insert(root,a[i]);\n    inorder(root); printf(\"\\\\n\"); freeTree(root); return 0;\n}", "Output: 10 20 30 40 60"], ["Example 3 — Search in a BST", "#include <stdio.h>\n#include <stdlib.h>\nstruct Node { int data; struct Node *left, *right; };\nstruct Node *insert(struct Node *r, int x) {\n    if (!r) { r=malloc(sizeof *r); if(!r) exit(1); r->data=x; r->left=r->right=NULL; return r; }\n    if(x<r->data) r->left=insert(r->left,x); else if(x>r->data) r->right=insert(r->right,x);\n    return r;\n}\nint search(struct Node *r, int key) {\n    if (!r) return 0;\n    if (r->data==key) return 1;\n    return key<r->data ? search(r->left,key) : search(r->right,key);\n}\nvoid freeTree(struct Node *r) { if(!r)return; freeTree(r->left); freeTree(r->right); free(r); }\nint main(void) {\n    struct Node *r=NULL; int a[]={15,8,22,5,12};\n    for(int i=0;i<5;i++) r=insert(r,a[i]);\n    printf(\"%s\\\\n\", search(r,12) ? \"Found\" : \"Not found\");\n    freeTree(r); return 0;\n}", "Output: Found"]]}, {"title": "Graphs", "unit": "UNIT III", "summary": "Graph representation, Depth First Search (DFS), and Breadth First Search (BFS).", "programs": [["Example 1 — Adjacency matrix", "#include <stdio.h>\nint main(void) {\n    int g[4][4] = {\n        {0,1,1,0},\n        {1,0,0,1},\n        {1,0,0,1},\n        {0,1,1,0}\n    };\n    for (int i=0;i<4;i++) {\n        for (int j=0;j<4;j++) printf(\"%d \",g[i][j]);\n        printf(\"\\\\n\");\n    }\n    return 0;\n}", "Output: prints the 4 × 4 adjacency matrix"], ["Example 2 — DFS traversal", "#include <stdio.h>\nint g[5][5] = {\n    {0,1,1,0,0}, {1,0,0,1,0}, {1,0,0,1,1},\n    {0,1,1,0,1}, {0,0,1,1,0}\n};\nint visited[5];\nvoid dfs(int v) {\n    visited[v]=1; printf(\"%d \",v);\n    for(int i=0;i<5;i++) if(g[v][i] && !visited[i]) dfs(i);\n}\nint main(void) { dfs(0); printf(\"\\\\n\"); return 0; }", "Output: one valid DFS order: 0 1 3 2 4"], ["Example 3 — BFS traversal", "#include <stdio.h>\nint main(void) {\n    int g[5][5] = {\n        {0,1,1,0,0}, {1,0,0,1,0}, {1,0,0,1,1},\n        {0,1,1,0,1}, {0,0,1,1,0}\n    };\n    int q[5], front=0, rear=0, seen[5]={0};\n    q[rear++]=0; seen[0]=1;\n    while(front<rear) {\n        int v=q[front++]; printf(\"%d \",v);\n        for(int i=0;i<5;i++)\n            if(g[v][i] && !seen[i]) { seen[i]=1; q[rear++]=i; }\n    }\n    printf(\"\\\\n\"); return 0;\n}", "Output: one valid BFS order: 0 1 2 3 4"]]}, {"title": "Searching", "unit": "UNIT IV", "summary": "Linear search works on unsorted data; binary search requires sorted data.", "programs": [["Example 1 — Linear search", "#include <stdio.h>\nint main(void) {\n    int a[]={7,2,9,4,5}, n=5, key=9, pos=-1;\n    for(int i=0;i<n;i++) if(a[i]==key) { pos=i; break; }\n    if(pos==-1) printf(\"Not found\\\\n\");\n    else printf(\"Found at index %d\\\\n\",pos);\n    return 0;\n}", "Output: Found at index 2"], ["Example 2 — Binary search", "#include <stdio.h>\nint main(void) {\n    int a[]={3,8,12,19,25,31}, n=6, key=19;\n    int low=0, high=n-1, pos=-1;\n    while(low<=high) {\n        int mid=low+(high-low)/2;\n        if(a[mid]==key) { pos=mid; break; }\n        if(a[mid]<key) low=mid+1; else high=mid-1;\n    }\n    printf(pos==-1 ? \"Not found\\\\n\" : \"Found at index %d\\\\n\",pos);\n    return 0;\n}", "Output: Found at index 3"], ["Example 3 — Count occurrences", "#include <stdio.h>\nint main(void) {\n    int a[]={2,4,2,7,2,9}, n=6, key=2, count=0;\n    for(int i=0;i<n;i++) if(a[i]==key) count++;\n    printf(\"Occurrences = %d\\\\n\",count);\n    return 0;\n}", "Output: Occurrences = 3"]]}, {"title": "Sorting", "unit": "UNIT IV", "summary": "Bubble sort, insertion sort and selection sort.", "programs": [["Example 1 — Bubble sort", "#include <stdio.h>\nint main(void) {\n    int a[]={5,1,4,2,8}, n=5;\n    for(int i=0;i<n-1;i++)\n        for(int j=0;j<n-i-1;j++)\n            if(a[j]>a[j+1]) { int t=a[j]; a[j]=a[j+1]; a[j+1]=t; }\n    for(int i=0;i<n;i++) printf(\"%d \",a[i]);\n    printf(\"\\\\n\"); return 0;\n}", "Output: 1 2 4 5 8"], ["Example 2 — Insertion sort", "#include <stdio.h>\nint main(void) {\n    int a[]={9,5,1,4,3}, n=5;\n    for(int i=1;i<n;i++) {\n        int key=a[i], j=i-1;\n        while(j>=0 && a[j]>key) { a[j+1]=a[j]; j--; }\n        a[j+1]=key;\n    }\n    for(int i=0;i<n;i++) printf(\"%d \",a[i]);\n    printf(\"\\\\n\"); return 0;\n}", "Output: 1 3 4 5 9"], ["Example 3 — Selection sort", "#include <stdio.h>\nint main(void) {\n    int a[]={64,25,12,22,11}, n=5;\n    for(int i=0;i<n-1;i++) {\n        int min=i;\n        for(int j=i+1;j<n;j++) if(a[j]<a[min]) min=j;\n        int t=a[i]; a[i]=a[min]; a[min]=t;\n    }\n    for(int i=0;i<n;i++) printf(\"%d \",a[i]);\n    printf(\"\\\\n\"); return 0;\n}", "Output: 11 12 22 25 64"]]}];
+const root=document.getElementById('programs'), links=document.getElementById('sideLinks');
+function render(){
+ const q=document.getElementById('search').value.toLowerCase().trim();
+ const unit=document.getElementById('unitFilter').value;
+ root.innerHTML='';links.innerHTML='';let count=0;
+ topics.forEach((t,ti)=>{
+   const text=(t.title+' '+t.summary+' '+t.programs.map(p=>p[0]+' '+p[1]+' '+p[2]).join(' ')).toLowerCase();
+   if((q && !text.includes(q))||(unit!=='all'&&t.unit!==unit)) return;
+   count++;
+   const id='topic-'+ti;
+   const a=document.createElement('a');a.href='#'+id;a.textContent=t.title;links.appendChild(a);
+   const section=document.createElement('section');section.className='topic';section.id=id;
+   section.innerHTML='<div class="topichead"><div class="unit">'+t.unit+'</div><h2>'+t.title+'</h2><p>'+t.summary+'</p></div>';
+   t.programs.forEach((p,pi)=>{
+     const card=document.createElement('article');card.className='card';
+     const h=document.createElement('h3');h.textContent=p[0];card.appendChild(h);
+     const desc=document.createElement('p');desc.className='desc';desc.textContent='Complete C program — copy, compile and run.';card.appendChild(desc);
+     const wrap=document.createElement('div');wrap.className='codewrap';
+     const btn=document.createElement('button');btn.className='copy';btn.textContent='Copy code';
+     const pre=document.createElement('pre');const code=document.createElement('code');code.textContent=p[1];pre.appendChild(code);
+     btn.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(p[1]);btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy code',1200)}catch(e){btn.textContent='Select code'}});
+     wrap.appendChild(btn);wrap.appendChild(pre);card.appendChild(wrap);
+     const out=document.createElement('div');out.className='output';out.textContent=p[2];card.appendChild(out);
+     section.appendChild(card);
+   });
+   root.appendChild(section);
+ });
+ document.getElementById('empty').style.display=count?'none':'block';
+}
+document.getElementById('search').addEventListener('input',render);
+document.getElementById('unitFilter').addEventListener('change',render);
+render();
+</script>
+
+</body></html>
